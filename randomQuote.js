@@ -6,9 +6,15 @@
         dataType: 'json',
         url: 'https://talaikis.com/api/quotes/random/',
         success: function(data){
-         // $('.quote').html("data.quote");
-         //$('.author').html("data.author");
-          console.log(data);
+        
+         //var obj = $.parseJSON(data);
+         var quote = '<p>" ' + data.quote + ' "</p>';
+         var author = "<p>" + data.author + "</p>";
+
+
+ 		$('.quote').html(quote);
+        $('.author').html(author);
+          //console.log(html);
         }
     });
  }
