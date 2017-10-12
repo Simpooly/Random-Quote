@@ -1,6 +1,8 @@
 
   $(document).ready(function() {
     
+    var quote = "";
+    var quthor = "";
  function getQuote(){
     $.ajax({
         dataType: 'json',
@@ -8,11 +10,11 @@
         success: function(data){
         
          //var obj = $.parseJSON(data);
-         var quote = '<p>" ' + data.quote + ' "</p>';
-         var author = "<p>" + data.author + "</p>";
+         quote = '" ' + data.quote + ' "';
+         author =  data.author ;
 
 
- 		$('.quote').html(quote);
+        $('.quote').html(quote);
         $('.author').html(author);
           //console.log(html);
         }
@@ -21,5 +23,13 @@
     
     $("#getmessage").on("click",function(){
       getQuote();
+      $('#getmessage').html("Press me Again!");
     });
-  });
+
+    $("#tweet").on("click", function(){
+    //var qString = $(".quote").html(quote);
+		window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent("hello"));
+		//console.log(quote, author);
+    });
+
+});
