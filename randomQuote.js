@@ -2,7 +2,7 @@
   $(document).ready(function() {
     
     var quote = "";
-    var quthor = "";
+    var author = "";
  function getQuote(){
     $.ajax({
         dataType: 'json',
@@ -25,11 +25,13 @@
       getQuote();
       $('#getmessage').html("Press me Again!");
     });
+    
 
     $("#tweet").on("click", function(){
+       
     //var qString = $(".quote").html(quote);
-		window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent("hello"));
-		//console.log(quote, author);
+		window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote + "  ~" + author));
+		//console.log(tweet);
     });
 
 });
